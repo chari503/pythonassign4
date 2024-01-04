@@ -1,0 +1,96 @@
+CODE:
+~~~~
+
+def temperature_converter():
+    try:
+        value = float(input("Enter the temperature value: "))
+        source_unit = input("Enter source unit (Celsius or Fahrenheit): ").lower()
+        target_unit = input("Enter target unit (Celsius or Fahrenheit): ").lower()
+
+        if source_unit == target_unit:
+            result = value
+        elif source_unit == "celsius" and target_unit == "fahrenheit":
+            result = (value * 9/5) + 32
+        elif source_unit == "fahrenheit" and target_unit == "celsius":
+            result = (value - 32) * 5/9
+        else:
+            print("Unsupported units. Please enter Celsius or Fahrenheit.")
+            return
+
+        print(f"Result: {result} {target_unit}")
+
+    except ValueError:
+        print("Invalid input. Please enter a numeric value for temperature.")
+
+def length_converter():
+    try:
+        value = float(input("Enter the length value: "))
+        source_unit = input("Enter source unit (Meters or Feet): ").lower()
+        target_unit = input("Enter target unit (Meters or Feet): ").lower()
+
+        if source_unit == target_unit:
+            result = value
+        elif source_unit == "meters" and target_unit == "feet":
+            result = value * 3.28084
+        elif source_unit == "feet" and target_unit == "meters":
+            result = value / 3.28084
+        else:
+            print("Unsupported units. Please enter Meters or Feet.")
+            return
+
+        print(f"Result: {result} {target_unit}")
+
+    except ValueError:
+        print("Invalid input. Please enter a numeric value for length.")
+
+def weight_converter():
+    try:
+        value = float(input("Enter the weight value: "))
+        source_unit = input("Enter source unit (Kilograms or Pounds): ").lower()
+        target_unit = input("Enter target unit (Kilograms or Pounds): ").lower()
+
+        if source_unit == target_unit:
+            result = value
+        elif source_unit == "kilograms" and target_unit == "pounds":
+            result = value * 2.20462
+        elif source_unit == "pounds" and target_unit == "kilograms":
+            result = value / 2.20462
+        else:
+            print("Unsupported units. Please enter Kilograms or Pounds.")
+            return
+
+        print(f"Result: {result} {target_unit}")
+
+    except ValueError:
+        print("Invalid input. Please enter a numeric value for weight.")
+
+# Main program
+print("Unit Converter")
+print("1. Temperature Converter")
+print("2. Length Converter")
+print("3. Weight Converter")
+
+choice = input("Enter your choice (1-3): ")
+
+if choice == "1":
+    temperature_converter()
+elif choice == "2":
+    length_converter()
+elif choice == "3":
+    weight_converter()
+else:
+    print("Invalid choice. Please enter a number between 1 and 3.")
+
+
+OUTPUT:
+~~~~~~
+
+Unit Converter
+1. Temperature Converter
+2. Length Converter
+3. Weight Converter
+Enter your choice (1-3): 2
+Enter the length value: 10
+Enter source unit (Meters or Feet): feet
+Enter target unit (Meters or Feet): meters
+Result: 3.047999902464003 meters
